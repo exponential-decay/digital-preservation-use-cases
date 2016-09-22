@@ -2,20 +2,20 @@ A JHOVE Use Case – JPEG-HUL at Archives NZ
 =====
 *2016-06-24: By Ross Spencer*
 
-Archives New Zealand has, at present, successfully completed four born-digital deposits. Because we use Ex-Libris’ Rosetta Digital 
-Preservation system, part of the workflow allows us to send our digital objects via JHOVE as part of a validation step where we 
-look for two simple words, ‘Well-formed, and valid’. 
+Archives New Zealand has, at present, successfully completed four born-digital deposits. Because we use Ex-Libris’ Rosetta Digital
+Preservation system, part of the workflow allows us to send our digital objects via JHOVE as part of a validation step where we look
+for two simple words, ‘Well-formed, and valid’. 
 
-When our files fail this test, we have to inspect the files manually and understand if we can fix them under strict pre-conditioning 
-rules (changes must be reversibly documented), or whether we have to accept the file as not-valid and ingest as-is until we have 
-the capacity to be able to create a second preservation master correcting the issue.
+When our files fail this test, we have to inspect the files manually and understand if we can fix them under strict pre-conditioning
+rules (changes must be reversibly documented), or whether we have to accept the file as not-valid and ingest as-is until we have the
+capacity to be able to create a second preservation master correcting the issue.
 
 An example of our tests failing appeared early in our second deposit with a JPEG failing in JHOVE with the following errors:
 
 ![jhove-messages](https://raw.githubusercontent.com/exponential-decay/digital-preservation-use-cases/master/JHOVE-JPEG-HUL-At-Archives-NZ/images/jhove-messages.png)
 
-At first, to see three messages like was quite overwhelming. Any issues that arise during a transfer that we haven’t 
-seen before will take an undetermined amount of time to fix, and we hadn’t yet come up against this issue. 
+At first, to see three messages like that, and for a single file was quite overwhelming. Any issues that arise during a transfer 
+that we haven’t seen before will take an undetermined amount of time to fix, and we hadn’t yet come up against these issues. 
 
 Opting to tackle the messages, one error at a time, we manage to fix all three with a single byte stream change, all driven 
 by reading a JPEG specification we were able to find via the Just Solve It wiki [(1)](#1). The second error message described plainly 
@@ -35,13 +35,14 @@ Taking an extract of the file header we can see side-by-side how we modified the
 ![hex-comparison](https://raw.githubusercontent.com/exponential-decay/digital-preservation-use-cases/master/JHOVE-JPEG-HUL-At-Archives-NZ/images/hex-comparison.png)
 
 Testing this as a fix meant first checking it against JHOVE – it was ‘Well-formed and valid’ – our APP0 change had the desired 
-cascade effect on the other errors. 
+cascade effect on the other two errors [(3)](#3). 
 
-For our pre-conditioning provenance note we could accurately describe the fix with the following paragraph:
+For our pre-conditioning provenance note we could accurately describe a reversible fix with the following paragraph:
 
     PRECONDITIONING BYTESTEAM 001: Bytes Swapped. JFIF application segment (18 bytes, beginning 0xFFE0) moved directly in front of Photoshop IRB segment (beginning 0xFFDB) and directly after the start of image marker (0xFFD8). MD5 (Original): 02a1b0254fe08cf07e03dde6819a63a9 becomes MD5 (pre-conditioned): 7f0b14e62afb8a02fe101faee39a324c. Modified Date (original) 10 March 2004 becomes modified date (pre-conditioned)
 
-Finally, working closely with our digital archivist, we could demonstrate clearly, no change to the display of the record. 
+Finally, before deposit, working closely with our digital archivist, we could demonstrate clearly, no change to the display, 
+or intellectual content of the record.   
 
 The file was ingested into Rosetta without issue and made available December 2014, see record number 
 [R24684315](https://www.archway.archives.govt.nz/ViewFullItem.do?code=24684315) in Archive New Zealand’s Archway Catalogue. 
@@ -51,7 +52,8 @@ The file was ingested into Rosetta without issue and made available December 201
 ###Footnotes
 
 <a name="1">[1]</a> http://fileformats.archiveteam.org/wiki/JPG - Just Solve It entry for JPG, accessed 24 June 2016 <br/>
-<a name="2">[2]</a> http://www.ozhiker.com/electronics/pjmt/jpeg_info/app_segments.html – for example, via http://www.ozhiker.com/ - Accessed 24 June 2016
+<a name="2">[2]</a> http://www.ozhiker.com/electronics/pjmt/jpeg_info/app_segments.html – for example, via http://www.ozhiker.com/ - Accessed 24 June 2016 <br/>
+<a name="3">[3]</a> Something I think we might spot with other format errors as we continue to understand the output of JHOVE in the community. 
 
 **------**
 
