@@ -12,7 +12,7 @@ the capacity to be able to create a second preservation master correcting the is
 
 An example of our tests failing appeared early in our second deposit with a JPEG failing in JHOVE with the following errors:
 
-[image]
+![jhove-messages](https://raw.githubusercontent.com/exponential-decay/digital-preservation-use-cases/master/JHOVE-JPEG-HUL-At-Archives-NZ/images/jhove-messages.png)
 
 At first, to see three messages like was quite overwhelming. Any issues that arise during a transfer that we haven’t 
 seen before will take an undetermined amount of time to fix, and we hadn’t yet come up against this issue. 
@@ -21,7 +21,7 @@ Opting to tackle the messages, one error at a time, we manage to fix all three w
 by reading a JPEG specification we were able to find via the Just Solve It wiki [(1)](#1). The second error message described plainly 
 to us in that documentation:
 
-[image]
+![jpeg-specification](https://raw.githubusercontent.com/exponential-decay/digital-preservation-use-cases/master/JHOVE-JPEG-HUL-At-Archives-NZ/images/jpeg-spec.png)
 
 With the error reading ‘APP0 marker not at beginning of file’ it was noted that other offsets JHOVE might be looking for 
 may be displaced. And so we set about fixing this problem (all the time testing fixes against our potential to do it under 
@@ -32,7 +32,7 @@ displaced segment inside the bitstream (fortunately the APP0 marker was still th
 
 Taking an extract of the file header we can see side-by-side how we modified the file to make it valid:
 
-[image]
+![hex-comparison](https://raw.githubusercontent.com/exponential-decay/digital-preservation-use-cases/master/JHOVE-JPEG-HUL-At-Archives-NZ/images/hex-comparison.png)
 
 Testing this as a fix meant first checking it against JHOVE – it was ‘Well-formed and valid’ – our APP0 change had the desired 
 cascade effect on the other errors. 
