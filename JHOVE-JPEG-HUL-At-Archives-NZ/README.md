@@ -49,7 +49,7 @@ The file was ingested into Rosetta without issue and made available December 201
 
 **------**
 
-###Footnotes
+### Footnotes
 
 <a name="1">[1]</a> http://fileformats.archiveteam.org/wiki/JPG - Just Solve It entry for JPG, accessed 24 June 2016 <br/>
 <a name="2">[2]</a> http://www.ozhiker.com/electronics/pjmt/jpeg_info/app_segments.html – for example, via http://www.ozhiker.com/ - Accessed 24 June 2016 <br/>
@@ -57,6 +57,6 @@ The file was ingested into Rosetta without issue and made available December 201
 
 **------**
 
-###License
+### License
 
 <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
